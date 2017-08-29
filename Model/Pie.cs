@@ -4,5 +4,6 @@ namespace e190.Model
     {
         public int PieId { get; set; }
         public string Filling { get; set; }
+        public bool IsSweet { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using e190.Model;
+using e190.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace e190.Controllers
@@ -18,8 +19,8 @@ namespace e190.Controllers
 
         public IActionResult Index()
         {
-            ViewData["data"] = context.Pies.Select(x => x.Filling).ToList();
-            return View();
+            var pies = context.Pies.ToList();
+            return View(new IndexVm { Pies = pies });
         }
 
         public IActionResult About()

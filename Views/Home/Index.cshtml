@@ -1,8 +1,10 @@
-﻿@{
+﻿@model e190.ViewModel.IndexVm
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-@foreach (var pie in (List<string>)ViewData["data"])
+@foreach (var pie in Model.Pies)
 {
-    <p>@pie</p>
+    <p>@pie.Filling</p>
 }

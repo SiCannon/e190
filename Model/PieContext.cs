@@ -8,7 +8,7 @@ namespace e190.Model
 
         public PieContext(DbContextOptions<PieContext> options) : base(options)
         {
-            
+            Database.Migrate();
         }
 
     }
