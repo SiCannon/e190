@@ -22,7 +22,7 @@ namespace e190
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                //.AddJsonFile("password.json", optional: false)
+                .AddJsonFile("password.json", optional: false)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
         }
@@ -34,8 +34,8 @@ namespace e190
         {
             services.AddDbContext<PieContext>(options =>
             {
-                var connectionString = Configuration.GetConnectionString("DefaultConnection");
-                //var password = Configuration["password.txt"];
+                var password = Configuration["password"];
+                var connectionString = Configuration["ConnectionStrings::DefaultConnection"].Replace("%PASSWORD%", password);
                 options.UseMySQL(connectionString);
             });
             
