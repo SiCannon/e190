@@ -18,7 +18,7 @@ namespace e190.Controllers
 
         public IActionResult Index()
         {
-            ViewData["data"] = context.Pies.ToList();
+            ViewData["data"] = context.Pies.Select(x => x.Filling).ToList();
             return View();
         }
 
