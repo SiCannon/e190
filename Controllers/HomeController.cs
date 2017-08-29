@@ -22,21 +22,7 @@ namespace e190.Controllers
             var pies = context.Pies.ToList();
             return View(new IndexVm { Pies = pies });
         }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
+        
         public IActionResult Error()
         {
             return View();

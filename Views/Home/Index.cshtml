@@ -1,10 +1,19 @@
-﻿@model e190.ViewModel.IndexVm
+﻿@using e190.Model
+@model e190.ViewModel.IndexVm
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Kong";
 }
 
 @foreach (var pie in Model.Pies)
 {
-    <p>@pie.Filling</p>
+    <div class="alert alert-@GetAlertClass(pie)">@pie.Filling</div>
+}
+
+@functions
+{
+    string GetAlertClass(Pie pie)
+    {
+        return pie.IsSweet ? "info" : "success";
+    }
 }
